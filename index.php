@@ -1,6 +1,12 @@
 <?php
 require_once 'pdo.php';
 session_start();
+
+if (!isset($_SESSION['user'])) {
+	header('Location: login.php');
+	return;
+}
+
 $autos = $pdo->query("SELECT * FROM autos");
 
 // Flash pattern

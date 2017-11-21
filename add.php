@@ -2,6 +2,10 @@
 require_once 'pdo.php';
 session_start();
 
+if (! isset($_SESSION['user'])) {
+	die('ACCESS DENIED');
+}
+
 if (isset($_POST['make']) && isset($_POST['model']) && isset($_POST['year']) && isset($_POST['mileage'])) {
 	
 	// faire validation ici
