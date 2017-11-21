@@ -11,7 +11,7 @@ if (isset($_POST['make']) && isset($_POST['model']) && isset($_POST['year']) && 
 	// faire validation ici
 	if (! filter_var($_POST['year'], FILTER_VALIDATE_INT) || ! filter_var($_POST['mileage'], FILTER_VALIDATE_INT)) {
 		$_SESSION['error'] = 'Year and mileage must be numbers.';
-		header("Location: edit.php");
+		header("Location: edit.php?autos_id=".$_POST['autos_id']);
         return;
 	}
 

@@ -9,7 +9,7 @@ if (! isset($_SESSION['user'])) {
 if (isset($_POST['make']) && isset($_POST['model']) && isset($_POST['year']) && isset($_POST['mileage'])) {
 	
 	// faire validation ici
-	if (! filter_var($_POST['year'], FILTER_VALIDATE_INT) || ! filter_var($_POST['mileage'], FILTER_VALIDATE_INT)) {
+	if (! is_numeric($_POST['year']) || ! is_numeric($_POST['mileage'])) {
 		$_SESSION['error'] = 'Year and mileage must be numbers.';
 		header("Location: add.php");
         return;
