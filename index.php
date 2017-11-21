@@ -2,6 +2,16 @@
 require_once 'pdo.php';
 session_start();
 $autos = $pdo->query("SELECT * FROM autos");
+
+// Flash pattern
+if ( isset($_SESSION['error']) ) {
+    $message = '<p style="color:red">'.$_SESSION['error']."</p>\n";
+    unset($_SESSION['error']);
+}
+if ( isset($_SESSION['success']) ) {
+    $message = '<p style="color:green">'.$_SESSION['success']."</p>\n";
+    unset($_SESSION['success']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +21,8 @@ $autos = $pdo->query("SELECT * FROM autos");
 </head>
 <body>
 <h1>Welcome to the automobile database</h1>
-<table>
+<?= $message ?>
+<table border="1">
 	<thead>
 		<tr>
 			<th>Make</th>
@@ -35,5 +46,8 @@ $autos = $pdo->query("SELECT * FROM autos");
 		?>
 	</tbody>
 </table>
+<div><a href="add.php">Add a new entry</a></div>
+<div><a href="logout.php">Logout</a></div>
+
 </body>
 </html>
