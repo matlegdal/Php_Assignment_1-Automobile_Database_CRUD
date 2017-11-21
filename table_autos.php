@@ -16,7 +16,7 @@
 				echo "<td>" . htmlentities($row['model']) . "</td>";
 				echo "<td>" . htmlentities($row['year']) . "</td>";
 				echo "<td>" . htmlentities($row['mileage']) . "</td>";
-				echo "<td><a href='/'>Edit</a> / <a href='/'>Delete</a></td>";
+				echo "<td><a href='edit.php?autos_id=".$row['autos_id']."'>Edit</a> / <a href='/'>Delete</a></td>";
 				echo "</tr>";
 			}
 		?>
